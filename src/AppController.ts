@@ -1,6 +1,6 @@
 import { Idata } from "./Context";
 
-export async function getData(){
+export async function getData(): Promise<Idata[]> {
     try {
         const capture = await fetch('https://635017b9df22c2af7b630c3e.mockapi.io/api/v1/users');
         const captureJson = await capture.json();
@@ -12,7 +12,7 @@ export async function getData(){
     }
 }
 
-export async function deleteById(id: string){
+export async function deleteById(id: string): Promise<void>{
     try {
         const capture = await fetch(`https://635017b9df22c2af7b630c3e.mockapi.io/api/v1/users/${id}`,{
             method: 'DELETE'
@@ -23,7 +23,7 @@ export async function deleteById(id: string){
     }
 }
 
-export async function editById(id: string, body: Idata){
+export async function editById(id: string, body: Idata): Promise<void> {
     try {
         const capture = await fetch(`https://635017b9df22c2af7b630c3e.mockapi.io/api/v1/users/${id}`,{
             method: 'PUT',
@@ -38,7 +38,7 @@ export async function editById(id: string, body: Idata){
     }
 }
 
-export async function create(body: Idata){
+export async function create(body: Idata): Promise<void>{
     try {
         const capture = await fetch(`https://635017b9df22c2af7b630c3e.mockapi.io/api/v1/users`,{
             method: 'POST',
