@@ -4,7 +4,7 @@ Se crea una aplicacion para renderizar una lista de usuarios. Se pide que la apl
 
 ## Herramientas Utilizadas
 
-React, typescript, asincronismo (fetch, asyn-await y then-cath ), React Context y React Router
+React, Typescript, Bootstrap, Asincronismo (fetch, asyn-await y then-cath ), React Context y React Router
 
 ## Comandos para desplegar el proyecto
 ### `npm start`
