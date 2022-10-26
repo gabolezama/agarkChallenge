@@ -1,6 +1,4 @@
-import { stringify } from 'querystring';
 import React, { createContext, ReactNode, useState } from 'react'
-import { StringDecoder } from 'string_decoder';
 
 export const AppContext = createContext({});
 
@@ -14,6 +12,13 @@ export interface Idata {
 
 interface Props{
     children: ReactNode
+}
+
+export interface ContextType{
+    data: Idata[];
+    itemToEdit: Idata;
+    setData: (value: Idata[]) => void;
+    setItemToEdit: (value: Idata) => void;
 }
 
 export function ContextComponent({children}: Props) {

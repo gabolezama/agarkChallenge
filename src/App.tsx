@@ -4,12 +4,12 @@ import './App.css';
 import EditAndCreate from './EditAndCreate';
 import HomePage from './HomePage';
 
-function App({context}: any): JSX.Element{
+function App(): JSX.Element{
   return (
     <BrowserRouter> 
         <Routes>
-            <Route path="/" element={<HomePage context={context}/>} />
-            <Route path="/edit" element={<EditAndCreate context={context}/>} />
+            <Route path="/" element={<HomePage/>} />
+            <Route path="/edit" element={<EditAndCreate/>} />
         </Routes>
     </BrowserRouter>
   );

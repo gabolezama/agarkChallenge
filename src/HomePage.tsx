@@ -2,12 +2,12 @@ import './App.css';
 import { Link } from "react-router-dom";
 import React, { useContext, useEffect, useState } from 'react';
 import { deleteById, getData } from './AppController';
-import { Idata } from './Context';
+import { AppContext, ContextType, Idata } from './Context';
 
-export default function HomePage(props: any): JSX.Element {
+export default function HomePage(): JSX.Element {
 
-  const {data, setData, setItemToEdit}: any = useContext(props.context)
-  const [reload, setReload] = useState(false)
+  const {data, setData, setItemToEdit}: any = useContext(AppContext) as ContextType;
+  const [reload, setReload] = useState<boolean>(false)
 
   useEffect(()=>{
 
@@ -17,12 +17,18 @@ export default function HomePage(props: any): JSX.Element {
   function handleEdit(item: Idata){
     setItemToEdit(item);
   }
-  function handleDelete(id: string | any){ 
-      deleteById(id);
-      setReload(!reload);
+  function handleDelete(id: string){ 
+    deleteById(id);
+    setReload(!reload)
   }
   function handleCreate(){
-    setItemToEdit(null);
+    setItemToEdit({
+      id: '',
+      first_name: '',
+      second_name: '',
+      email: '',
+      avatar: ''
+    });
   }
 
   return (

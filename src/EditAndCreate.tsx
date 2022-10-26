@@ -1,15 +1,20 @@
 import React, { useContext, useState } from 'react'
 import { Link } from "react-router-dom";
-import { Node } from 'typescript';
 import { create, deleteById, editById } from './AppController';
-import { Idata } from './Context';
+import { AppContext, ContextType, Idata } from './Context';
 
-export default function EditAndCreate({context}: any) {
-    const { itemToEdit }: any = useContext(context)
-    console.log(itemToEdit);
-    
+export default function EditAndCreate() {
+    const { itemToEdit } = useContext(AppContext) as ContextType;
+
+    const voidForm: Idata = {
+        id: '',
+        first_name: '',
+        second_name: '',
+        email: '',
+        avatar: ''
+    }
     const [editting, setEditting] = useState<boolean>(!!itemToEdit?.first_name);
-    const [userInfo, setUserInfo] = useState<Idata>(editting? itemToEdit : {})
+    const [userInfo, setUserInfo] = useState<Idata>(editting? itemToEdit : voidForm)
 
     function setInputValues(e: React.ChangeEvent<HTMLInputElement>){
         setUserInfo({

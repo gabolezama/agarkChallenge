@@ -5,7 +5,7 @@ export async function getData(): Promise<Idata[]> {
         const capture = await fetch('https://635017b9df22c2af7b630c3e.mockapi.io/api/v1/users');
         const captureJson = await capture.json();
 
-        return captureJson
+        return captureJson;
         
     } catch (error) {
         throw error;
